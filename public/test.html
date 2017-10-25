@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Scrapper</title>
+
+    <!-- Materialize - Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/styles/styles.css">
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <!-- Materialize - Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+<!--Nav BAr-->
+<nav>
+    <div class="nav-wrapper blue-grey darken-4">
+        <a href="#" class="brand-logo cursive">Web-Scrapper</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="#">GitHub Repo</a></li>
+            <li><a href="http://brookleewilson.com/" target="_blank">Portfolio</a></li>
+            <li><a href="https://www.webpagefx.com/blog/web-design/" target="_blank">WebpageFX</a></li>
+        </ul>
+    </div>
+</nav>
+<!--Hero-->
+    <div class="row">
+        <div class="col s12">
+            <h2 class="text-center cursive">Welcome to WebScrapper!</h2>
+            <h4 class="text-center">get all the latest updates to web design</h4>
+            <p class="text-center">Read articles, add comments and read comments</p>
+        </div>
+    </div>
+
+<!--Scrape Button-->
+<div class="row">
+    <div class="col s3"></div>
+    <div class="col s6 text-center">
+        <button class="btn waves-effect waves-light blue-grey darken-4" type="submit" name="action">Scrape Articles
+        </button>
+        </div>
+    </div>
+    <div class="col s3"></div>
+</div>
+
+<!--loader-->
+<div class="row">
+    <div class="col s3"></div>
+    <div class="col s6">
+        <div class="progress blue-grey darken-4">
+            <div class="indeterminate blue-grey"></div>
+        </div>
+    </div>
+    <div class="col s3"></div>
+</div>
+
+<!--Articles-->
+<div class="container">
+    {{{body}}}
+    <div class="col s12 m7">
+        <div class="card horizontal">
+            <div class="card-image full-image">
+                <img src="https://lorempixel.com/100/190/nature/6">
+            </div>
+            <div class="card-stacked">
+                <div class="card-content">
+                    <h5>Title</h5>
+                    <p>I am a very simple card. I am good at containing small bits of information.</p>
+                </div>
+                <div class="card-action">
+                    <a href="#">This is a link</a>
+                    <!--Collapsible-->
+                    <ul class="collapsible" data-collapsible="accordion">
+                        <!--Comment-->
+                        <li>
+                            <div class="collapsible-header"><i class="material-icons">edit</i>Comment</div>
+                            <div class="collapsible-body"><span>
+                                 <form id="form-add-{{_id}}" action="add/comment/{{_id}}" method="post" style="background-color: white;">
+
+          <!-- Author Name Input -->
+          <div class="row">
+            <div class="input-field col s2"></div>
+            <div class="input-field col s8">
+              <input id="author_name" name="name" type="text" class="validate">
+              <label for="author_name">Your Name:</label>
+            </div>
+          </div>
+
+                                     <!-- Comment Input -->
+          <div class="row">
+            <div class="input-field col s2"></div>
+            <div class="input-field col s8">
+              <textarea id="comment_box" name="comment" class="materialize-textarea"></textarea>
+              <label for="comment_box">Your Comment:</label>
+            </div>
+          </div>
+
+                                     <!-- Submit Button -->
+            <div class="row">
+              <div class="input-field col s2"></div>
+              <div class="input-field col s8">
+              <center><input class="btn add-comment-button blue-grey darken-4" data-id="{{_id}}" type="submit" value="Submit"></center>
+              </div>
+            </div>
+
+        </form>
+                            </span></div>
+                        </li>
+
+                        <!--Read Comments-->
+                        <li>
+                            <div class="collapsible-header"><i class="material-icons">short_text</i>Read Comments</div>
+                            <div class="collapsible-body"><span>
+                                 {{!-- Check if the article has comments --}}
+        {{#if comments}}
+
+          {{!-- Article has comments so iterate over them  --}}
+          <ul class="collection">
+            {{#each comments}}
+
+              <li class="collection-item">
+
+                {{!-- Add Author Name --}}
+                <b>{{author}}</b>
+
+                {{!-- Add a Delete Button --}}
+                <span class="badge">
+                  <form id="form-delete-{{_id}}" action="remove/comment/{{_id}}" method="post">
+                    <input class="btn-small delete-comment-button" data-id="{{_id}}" type="submit" value="Delete" style="color: white; background-color: red; border-color: red;">
+                  </form>
+                </span>
+
+                <br>
+
+                {{!-- Add the Content of the Comment --}}
+                {{content}}
+
+              </li>
+            {{/each}}
+          </ul>
+
+        {{!-- No comments, so display message --}}
+        {{else}}
+          <p>No Comments Yet :( </p>
+        {{/if}}
+
+                            </span></div>
+                        </li>
+                    </ul>
+                    <!--<button class="btn waves-effect waves-light blue-grey darken-4 right">Comment</button>-->
+                    <!--<button class="btn waves-effect waves-light blue-grey darken-4 right">Read Comments</button>-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<footer class="page-footer blue-grey darken-4">
+    <div class="footer-copyright">
+        <div class="container">
+            © 2017 Copyright Brooklee Wilson
+            all articles scraped from webpageFX.com
+            <a class="grey-text text-lighten-4 right" href="#!">webpageFX.com</a>
+        </div>
+    </div>
+</footer>
+
+<!-- Link in jQuery CDN -->
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
+<!-- Materialize - Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $('.collapsible').collapsible();
+    });
+</script>
+
+</div>
+</body>
+</html>

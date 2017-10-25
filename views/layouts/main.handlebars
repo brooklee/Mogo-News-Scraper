@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Scrapper</title>
+
+    <!-- Materialize - Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/styles/styles.css">
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+</head>
+<body>
+
+<!--Nav BAr-->
+<nav>
+    <div class="nav-wrapper blue-grey darken-4">
+        <a href="#" class="brand-logo cursive">Web-Scrapper</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="#">GitHub Repo</a></li>
+            <li><a href="http://brookleewilson.com/" target="_blank">Portfolio</a></li>
+            <li><a href="https://www.webpagefx.com/blog/web-design/" target="_blank">WebpageFX</a></li>
+        </ul>
+    </div>
+</nav>
+<!--Hero-->
+<div class="row">
+    <div class="col s12">
+        <h2 class="text-center cursive">Welcome to WebScrapper!</h2>
+        <h4 class="text-center">get all the latest updates to web design</h4>
+        <p class="text-center">Read articles, add comments and read comments</p>
+    </div>
+</div>
+
+<!--Scrape Button-->
+<div class="row">
+    <div class="col s3"></div>
+    <div class="col s6 text-center">
+        <button class="btn waves-effect waves-light blue-grey darken-4" type="submit" name="action">Scrape Articles
+        </button>
+    </div>
+</div>
+<div class="col s3"></div>
+</div>
+
+<!--loader-->
+<div class="row">
+    <div class="col s3"></div>
+    <div class="col s6">
+        <div class="progress blue-grey darken-4">
+            <div class="indeterminate blue-grey"></div>
+        </div>
+    </div>
+    <div class="col s3"></div>
+</div>
+
+<!--Articles-->
+<div class="container">
+    {{{body}}}
+
+</div>
+
+<footer class="page-footer blue-grey darken-4">
+    <div class="footer-copyright">
+        <div class="container">
+            © 2017 Copyright Brooklee Wilson
+            all articles scraped from webpageFX.com
+            <a class="grey-text text-lighten-4 right" href="#!">webpageFX.com</a>
+        </div>
+    </div>
+</footer>
+
+<!-- Link in jQuery CDN -->
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
+<!-- Materialize - Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $('.collapsible').collapsible();
+    });
+</script>
+
+</body>
+</html>
