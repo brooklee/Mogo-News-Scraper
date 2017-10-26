@@ -33,7 +33,7 @@ app.set('view engine', 'handlebars');
 app.use(express.static("public"));
 
 // Database Configuration with Mongoose==================================================================================
-// TODO: change Localhost
+//
 // Connect to localhost if not a production environment
 if(process.env.NODE_ENV == 'production'){
     mongoose.connect('mongodb://heroku_8pg0rkrp:nqsbqvj618t2dq7a1j5s4onas8@ds121955.mlab.com:21955/heroku_8pg0rkrp');
