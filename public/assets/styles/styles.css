@@ -9,15 +9,15 @@ body{
 h1, .cursive{
     font-family: 'Pacifico', cursive;
 }
-.full-image{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden
-}
-.full-image img{
-    flex-shrink: 0;
-    min-width: 100%;
-    min-height: 100%;
-    object-fit: cover;
-}
+/*.full-image{*/
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    /*overflow: hidden*/
+/*}*/
+/*.full-image img{*/
+    /*flex-shrink: 0;*/
+    /*min-width: 100%;*/
+    /*min-height: 100%;*/
+    /*object-fit: cover;*/
+/*}*/
