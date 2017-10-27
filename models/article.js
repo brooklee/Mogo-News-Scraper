@@ -28,11 +28,6 @@ var ArticleSchema = new Schema({
         required: true
     },
 
-    readTime: {
-        type: String,
-        required: true
-    },
-
     // Date of article scrape (saving as a string to pretify it in Moment-JS)
     updated: {
         type: String,
