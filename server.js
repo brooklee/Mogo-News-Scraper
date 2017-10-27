@@ -37,10 +37,12 @@ app.use(express.static("public"));
 //
 // Connect to localhost if not a production environment
 if(process.env.NODE_ENV == 'production'){
-    mongoose.connect('mongodb://heroku_8pg0rkrp:nqsbqvj618t2dq7a1j5s4onas8@ds121955.mlab.com:21955/heroku_8pg0rkrp');
+    mongoose.connect('mongodb://heroku_60zpcwg0:ubn0n27pi2856flqoedo9glvh8@ds119578.mlab.com:19578/heroku_60zpcwg0');
+    console.log("heroku DB")
 }
 else{
     mongoose.connect('mongodb://localhost/news-scraper');
+    console.log("local-host connection")
 
 }
 var db = mongoose.connection;
