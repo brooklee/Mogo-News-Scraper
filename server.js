@@ -33,12 +33,12 @@ app.set('view engine', 'handlebars');
 // ---------------------------------------------------------------------------------------------------------------
 // Connect to localhost if not a production environment
 if(process.env.NODE_ENV == 'production'){
-  mongoose.connect('mongodb://heroku_60zpcwg0:ubn0n27pi2856flqoedo9glvh8@ds119578.mlab.com:19578/heroku_60zpcwg0');
+  // mongoose.connect('mongodb://heroku_60zpcwg0:ubn0n27pi2856flqoedo9glvh8@ds119578.mlab.com:19578/heroku_60zpcwg0');
 }
 else{
   mongoose.connect('mongodb://localhost/news-scraper');
   // YOU CAN IGNORE THE CONNECTION URL BELOW (LINE 41) THAT WAS JUST FOR DELETING STUFF ON A RE-DEPLOYMENT
-  //mongoose.connect('mongodb://heroku_60zpcwg0:ubn0n27pi2856flqoedo9glvh8@ds119578.mlab.com:19578/heroku_60zpcwg0');
+  mongoose.connect(' mongodb://heroku_8pg0rkrp:nqsbqvj618t2dq7a1j5s4onas8@ds121955.mlab.com:21955/heroku_8pg0rkrp');
 }
 var db = mongoose.connection;
 
@@ -56,11 +56,6 @@ db.once('open', function() {
 var Comment = require('./models/Comment.js');
 var Article = require('./models/Article.js');
 // ---------------------------------------------------------------------------------------------------------------
-
-// DROP DATABASE (FOR MY PERSONAL REFERENCE ONLY - YOU CAN IGNORE)
-// Article.remove({}, function(err) { 
-//    console.log('collection removed') 
-// });
 
 // Import Routes/Controller
 var router = require('./controllers/controller.js');
